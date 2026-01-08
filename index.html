@@ -5,129 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>آرتور شاپ - فروش جم و آیتم‌های بازی‌های آنلاین</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap">
     <style>
-        /* Reset و تعریف متغیرها */
-        :root {
-            --primary: #ff6b35;
-            --primary-dark: #e55a2b;
-            --secondary: #4a6fa5;
-            --secondary-dark: #3a5985;
-            --accent: #ffd166;
-            --dark: #2d3047;
-            --light: #f8f9fa;
-            --success: #28a745;
-            --warning: #ffc107;
-            --danger: #dc3545;
-            --gray: #6c757d;
-            --gray-light: #e9ecef;
-            --ff-green: #00cc00;
-            --coc-green: #00cc66;
-            --cod-red: #ff3333;
-            --pubg-orange: #ff9900;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --radius: 12px;
-            --transition: all 0.3s ease;
-        }
-        
+        /* تنظیمات کلی و فونت فارسی */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Vazirmatn', sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: #f5f7fa;
-            color: #333;
+            background-color: #0a0e17;
+            color: #f0f0f0;
             line-height: 1.6;
             overflow-x: hidden;
+            position: relative;
         }
         
-        /* استایل هدر و ناوبری */
+        /* پس‌زمینه متحرک با الماس و لوگو */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e17 0%, #1a1f2e 50%, #0a0e17 100%);
+        }
+        
+        /* هدر و ناوبری */
         header {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
             position: sticky;
             top: 0;
             z-index: 1000;
+            border-bottom: 2px solid #ff9800;
+            box-shadow: 0 5px 20px rgba(255, 152, 0, 0.2);
         }
         
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-        
-        .header-content {
+        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.8rem;
-        }
-        
-        .logo i {
-            font-size: 2.2rem;
-            color: var(--accent);
+            gap: 15px;
         }
         
         .logo h1 {
             font-size: 1.8rem;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             font-weight: 800;
+            text-shadow: 0 0 10px rgba(255, 152, 0, 0.3);
         }
         
-        .logo span {
-            color: var(--accent);
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #ff9800;
+            animation: pulse 2s infinite;
         }
         
-        /* ناوبری */
-        .nav-tabs {
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        nav ul {
             display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+            list-style: none;
+            gap: 25px;
         }
         
-        .tab-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
+        nav ul li a {
+            color: #f0f0f0;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
+            gap: 8px;
         }
         
-        .tab-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+        nav ul li a:hover {
+            background-color: #ff9800;
+            color: #0a0e17;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
         }
         
-        .tab-btn.active {
-            background: var(--primary);
-            color: white;
+        nav ul li a.active {
+            background-color: #ff5722;
+            color: #0a0e17;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #ff9800;
+            font-size: 1.8rem;
+            cursor: pointer;
         }
         
         /* محتوای اصلی */
         .main-content {
-            min-height: calc(100vh - 180px);
-            padding: 2rem 0;
+            min-height: calc(100vh - 160px);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 5%;
         }
         
         .page {
@@ -146,1359 +145,1532 @@
         
         /* صفحه اصلی */
         .hero {
-            background: linear-gradient(rgba(45, 48, 71, 0.9), rgba(45, 48, 71, 0.9)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 4rem 2rem;
-            border-radius: var(--radius);
             text-align: center;
-            margin-bottom: 3rem;
-            box-shadow: var(--shadow);
+            padding: 50px 0;
         }
         
         .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3, #FF9800, #FF5722);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradientShift 5s infinite;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
         
         .hero p {
             font-size: 1.2rem;
             max-width: 800px;
-            margin: 0 auto 2rem;
-            opacity: 0.9;
-        }
-        
-        .cta-button {
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
-        }
-        
-        .cta-button:hover {
-            background: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
+            margin: 0 auto 40px;
+            color: #aaa;
         }
         
         .features {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
         }
         
         .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
             text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 152, 0, 0.2);
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 30px rgba(255, 152, 0, 0.2);
+            border-color: #ff9800;
         }
         
-        .feature-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
+        .feature-icon {
+            font-size: 3rem;
+            color: #ff9800;
+            margin-bottom: 20px;
         }
         
         .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            color: var(--dark);
-        }
-        
-        /* بخش گردونه شانس */
-        .wheel-section {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .wheel-section h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.7rem;
-        }
-        
-        .wheel-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 2rem auto;
-        }
-        
-        .wheel {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            position: relative;
-            overflow: hidden;
-            transition: transform 5s cubic-bezier(0.17, 0.67, 0.18, 0.99);
-            box-shadow: 0 0 0 8px var(--accent), 0 0 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        .wheel-item {
-            position: absolute;
-            width: 50%;
-            height: 50%;
-            transform-origin: bottom right;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            text-align: center;
-            padding: 0 20px;
-        }
-        
-        .wheel-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
-            background: var(--dark);
-            border-radius: 50%;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent);
             font-size: 1.5rem;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            border: 5px solid var(--accent);
+            margin-bottom: 15px;
+            color: #ff9800;
         }
         
-        .spin-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1.5rem;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+        .testimonials {
+            margin: 70px 0;
         }
         
-        .spin-btn:hover:not(:disabled) {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.5);
-        }
-        
-        .spin-btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
-        
-        .result {
-            margin-top: 2rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-            color: white;
-            border-radius: var(--radius);
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .result.active {
-            display: block;
-        }
-        
-        .result h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-        
-        /* صفحه محصولات */
-        .page-title {
+        .testimonials h2 {
+            text-align: center;
             font-size: 2.2rem;
-            margin-bottom: 2rem;
-            color: var(--dark);
+            margin-bottom: 40px;
+            color: #4CAF50;
+        }
+        
+        .testimonial-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #2196F3;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2196F3, #4CAF50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-left: 15px;
+        }
+        
+        .rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+        
+        /* صفحه فروشگاه */
+        .shop-header {
             text-align: center;
-            position: relative;
-            padding-bottom: 1rem;
+            margin-bottom: 40px;
         }
         
-        .page-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 100px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
+        .shop-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #ff9800;
         }
         
-        .game-filter {
+        .game-tabs {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2.5rem;
+            gap: 15px;
+            margin-bottom: 30px;
         }
         
-        .filter-btn {
-            background: white;
-            color: var(--dark);
-            border: 2px solid var(--gray-light);
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            font-size: 1rem;
+        .game-tab {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #f0f0f0;
+            padding: 12px 25px;
+            border-radius: 30px;
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 10px;
         }
         
-        .filter-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
+        .game-tab:hover {
+            background: rgba(255, 152, 0, 0.3);
         }
         
-        .filter-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
+        .game-tab.active {
+            background: #ff9800;
+            color: #0a0e17;
         }
         
-        .products-grid {
+        .products-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .game-section {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        .game-section.active {
-            display: block;
-        }
-        
-        .game-title {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--gray-light);
-            color: var(--dark);
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
         }
         
         .product-card {
-            background: white;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
+            background: linear-gradient(145deg, rgba(30, 35, 50, 0.8), rgba(20, 25, 40, 0.8));
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 152, 0, 0.3);
             position: relative;
+            overflow: hidden;
         }
         
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(255, 152, 0, 0.3);
+            border-color: #ff9800;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
         }
         
         .product-header {
-            padding: 1.5rem;
-            text-align: center;
-            background: linear-gradient(135deg, var(--dark) 0%, var(--secondary) 100%);
-            color: white;
-            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
-        .product-badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: var(--accent);
-            color: var(--dark);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 700;
+        .product-icon {
+            font-size: 2.5rem;
         }
         
-        .diamond {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            animation: diamondGlow 2s infinite alternate;
+        .product-header h3 {
+            font-size: 1.5rem;
         }
         
-        .coc-diamond {
-            color: var(--coc-green) !important;
-            text-shadow: 0 0 10px rgba(0, 204, 102, 0.7);
+        .product-details {
+            margin-bottom: 25px;
         }
         
-        @keyframes diamondGlow {
-            from { text-shadow: 0 0 5px currentColor; }
-            to { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
+        .gem-animation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 15px 0;
+            height: 60px;
         }
         
-        .product-name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .gem {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            text-shadow: 0 0 15px rgba(76, 175, 80, 0.7);
+            animation: gemGlow 2s infinite alternate;
         }
         
-        .product-body {
-            padding: 1.5rem;
+        .clash-gem {
+            color: #4CAF50;
+            text-shadow: 0 0 20px rgba(76, 175, 80, 0.9);
+            animation: clashGemGlow 1.5s infinite alternate;
+        }
+        
+        @keyframes gemGlow {
+            from { transform: scale(1); text-shadow: 0 0 10px rgba(76, 175, 80, 0.7); }
+            to { transform: scale(1.1); text-shadow: 0 0 25px rgba(76, 175, 80, 1); }
+        }
+        
+        @keyframes clashGemGlow {
+            from { transform: scale(1); text-shadow: 0 0 15px rgba(76, 175, 80, 0.8); }
+            to { transform: scale(1.15); text-shadow: 0 0 30px rgba(76, 175, 80, 1); }
+        }
+        
+        .gem-count {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 0 10px;
+            color: #fff;
         }
         
         .price-container {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
         }
         
         .old-price {
             font-size: 1.2rem;
-            color: var(--gray);
+            color: #aaa;
             text-decoration: line-through;
         }
         
         .current-price {
             font-size: 1.8rem;
             font-weight: 800;
-            color: var(--primary);
+            color: #4CAF50;
         }
         
         .buy-btn {
+            display: block;
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
+            color: #0a0e17;
             border: none;
-            padding: 1rem;
-            border-radius: var(--radius);
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 800;
             font-size: 1.1rem;
-            font-weight: 600;
             cursor: pointer;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
         }
         
         .buy-btn:hover {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #d4491f 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
+        }
+        
+        .buy-btn:active {
+            transform: translateY(0);
         }
         
         /* صفحه قوانین */
         .rules-container {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(255, 152, 0, 0.3);
         }
         
-        .rules-list {
-            list-style-type: none;
-            counter-reset: rule-counter;
+        .rules-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
         
-        .rule-item {
-            margin-bottom: 1.5rem;
-            padding-right: 3rem;
-            position: relative;
-            counter-increment: rule-counter;
-            border-bottom: 1px solid var(--gray-light);
-            padding-bottom: 1.5rem;
+        .rules-header h2 {
+            font-size: 2.5rem;
+            color: #ff9800;
+            margin-bottom: 10px;
         }
         
-        .rule-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .rules-content {
+            font-size: 1.1rem;
         }
         
-        .rule-item::before {
-            content: counter(rule-counter);
-            position: absolute;
-            right: 0;
-            top: 0;
-            background: var(--primary);
-            color: white;
-            width: 2rem;
-            height: 2rem;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
+        .rule-section {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .rule-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
+        .rule-section h3 {
+            color: #4CAF50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
         }
         
-        .rule-text {
-            color: #555;
-            line-height: 1.8;
+        .rule-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .rule-section ul {
+            padding-right: 20px;
+            color: #ccc;
+        }
+        
+        .rule-section li {
+            margin-bottom: 8px;
         }
         
         /* صفحه لینک‌های متفرقه */
         .links-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .links-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .links-header h2 {
+            font-size: 2.5rem;
+            color: #ff9800;
+            margin-bottom: 10px;
+        }
+        
+        .links-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            gap: 25px;
         }
         
         .link-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2rem;
-            box-shadow: var(--shadow);
+            background: linear-gradient(145deg, rgba(30, 35, 50, 0.8), rgba(20, 25, 40, 0.8));
+            border-radius: 15px;
+            padding: 25px;
             text-align: center;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 152, 0, 0.3);
         }
         
         .link-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 30px rgba(255, 152, 0, 0.3);
+            border-color: #ff9800;
         }
         
-        .link-card i {
-            font-size: 2.5rem;
-            margin-bottom: 1.2rem;
-            color: var(--secondary);
+        .link-icon {
+            font-size: 3rem;
+            color: #2196F3;
+            margin-bottom: 20px;
         }
         
         .link-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ff9800;
+        }
+        
+        .link-card p {
+            color: #aaa;
+            margin-bottom: 25px;
         }
         
         .link-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-dark) 100%);
-            color: white;
-            padding: 0.8rem 1.8rem;
-            border-radius: 50px;
+            background: linear-gradient(90deg, #2196F3, #4CAF50);
+            color: #0a0e17;
             text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            margin-top: 1rem;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            transition: all 0.3s ease;
         }
         
         .link-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(74, 111, 165, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(33, 150, 243, 0.4);
         }
         
-        /* صفحه واسطه */
-        .mediation-container {
-            background: white;
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
+        /* صفحه رزرو واسطه */
+        .reserve-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(255, 152, 0, 0.3);
         }
         
-        .mediation-info {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem;
-            border-radius: var(--radius);
-            margin-bottom: 2rem;
-            border-right: 5px solid var(--primary);
+        .reserve-header {
+            text-align: center;
+            margin-bottom: 40px;
         }
         
-        .mediation-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .reserve-header h2 {
+            font-size: 2.5rem;
+            color: #ff9800;
+            margin-bottom: 10px;
         }
         
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
+        .reserve-form .form-group {
+            margin-bottom: 25px;
         }
         
-        .form-group label {
+        .reserve-form label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ff9800;
             font-weight: 600;
-            color: var(--dark);
         }
         
-        .form-group input, .form-group select, .form-group textarea {
-            padding: 1rem;
-            border: 2px solid var(--gray-light);
-            border-radius: var(--radius);
+        .reserve-form input, .reserve-form select, .reserve-form textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 152, 0, 0.5);
+            border-radius: 10px;
+            color: #f0f0f0;
             font-size: 1rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
         
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--primary);
+        .reserve-form input:focus, .reserve-form select:focus, .reserve-form textarea:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.2);
+            border-color: #ff9800;
+            box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
         }
         
-        .submit-btn {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
+        .reserve-btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(90deg, #ff9800, #ff5722);
+            color: #0a0e17;
             border: none;
-            padding: 1.2rem;
-            border-radius: var(--radius);
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 18px;
+            border-radius: 10px;
+            font-weight: 800;
+            font-size: 1.2rem;
             cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 30px;
         }
         
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+        .reserve-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.4);
         }
         
-        .admin-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: linear-gradient(135deg, #25d366 0%, #128C7E 100%);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            transition: var(--transition);
+        .reserve-note {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(33, 150, 243, 0.1);
+            border-radius: 10px;
+            border-right: 5px solid #2196F3;
         }
         
-        .admin-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+        .reserve-note h4 {
+            color: #2196F3;
+            margin-bottom: 10px;
         }
         
         /* فوتر */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 2rem;
-            margin-top: 3rem;
+            background: rgba(10, 14, 23, 0.95);
+            padding: 40px 5% 20px;
+            border-top: 2px solid #ff9800;
+            margin-top: 50px;
         }
         
         .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 40px;
+            margin-bottom: 30px;
         }
         
         .footer-section h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-            position: relative;
-            padding-bottom: 0.7rem;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #ff9800;
         }
         
-        .footer-section h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--primary);
-        }
-        
-        .footer-links {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: #ddd;
+        .footer-section p, .footer-section a {
+            color: #aaa;
+            margin-bottom: 10px;
+            display: block;
             text-decoration: none;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            transition: color 0.3s ease;
         }
         
-        .footer-links a:hover {
-            color: var(--accent);
-            padding-right: 5px;
+        .footer-section a:hover {
+            color: #ff9800;
         }
         
-        .social-icons {
+        .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 15px;
+            margin-top: 20px;
         }
         
         .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 152, 0, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
+            color: #ff9800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
         }
         
         .social-icon:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
+            background: #ff9800;
+            color: #0a0e17;
+            transform: translateY(-5px);
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
+            color: #777;
             font-size: 0.9rem;
         }
         
-        /* ریسپانسیو */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
+        /* استایل برای موبایل */
+        @media (max-width: 992px) {
+            nav ul {
+                gap: 10px;
             }
             
-            .nav-tabs {
-                justify-content: center;
+            nav ul li a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
             }
             
             .hero h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .products-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
             }
             
-            .page-title {
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .mobile-menu {
+                display: none;
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            .mobile-menu ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero h2 {
                 font-size: 1.8rem;
             }
             
-            .wheel-container {
-                width: 250px;
-                height: 250px;
-            }
-            
-            .rules-container, .mediation-container {
-                padding: 1.5rem;
+            .rules-container, .reserve-container {
+                padding: 25px;
             }
         }
         
         @media (max-width: 576px) {
-            .container {
-                padding: 0 1rem;
+            .main-content {
+                padding: 20px 3%;
             }
             
-            .tab-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
+            .hero h2 {
+                font-size: 1.6rem;
             }
             
-            .hero {
-                padding: 3rem 1rem;
-            }
-            
-            .products-grid {
+            .features {
                 grid-template-columns: 1fr;
             }
             
-            .link-card {
-                padding: 1.5rem;
+            .products-container {
+                grid-template-columns: 1fr;
             }
+            
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* انیمیشن برای الماس‌ها و آیتم‌ها */
+        .floating-element {
+            position: absolute;
+            z-index: -1;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+            100% { transform: translateY(0) rotate(360deg); }
+        }
+        
+        /* نوتیفیکیشن */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: linear-gradient(90deg, #4CAF50, #2196F3);
+            color: #0a0e17;
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 1001;
+            transform: translateX(-150%);
+            transition: transform 0.5s ease;
+        }
+        
+        .notification.show {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
-    <!-- هدر -->
+    <!-- پس زمینه الماس‌های متحرک -->
+    <div id="particles-js"></div>
+    
+    <!-- هدر و ناوبری -->
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-gem"></i>
-                    <h1>آرتور <span>شاپ</span></h1>
-                </div>
-                <div class="nav-tabs">
-                    <button class="tab-btn active" data-page="home">
-                        <i class="fas fa-home"></i> صفحه اصلی
-                    </button>
-                    <button class="tab-btn" data-page="products">
-                        <i class="fas fa-shopping-cart"></i> خرید جم
-                    </button>
-                    <button class="tab-btn" data-page="rules">
-                        <i class="fas fa-scroll"></i> قوانین
-                    </button>
-                    <button class="tab-btn" data-page="links">
-                        <i class="fas fa-link"></i> خرید اکانت
-                    </button>
-                    <button class="tab-btn" data-page="mediation">
-                        <i class="fas fa-handshake"></i> رزرو واسطه
-                    </button>
-                </div>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon"><i class="fas fa-crown"></i></div>
+                <h1>آرتور شاپ</h1>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+                    <li><a href="#" class="nav-link" data-page="shop"><i class="fas fa-shopping-cart"></i> خرید جم</a></li>
+                    <li><a href="#" class="nav-link" data-page="rules"><i class="fas fa-scroll"></i> قوانین</a></li>
+                    <li><a href="#" class="nav-link" data-page="links"><i class="fas fa-link"></i> لینک‌های متفرقه</a></li>
+                    <li><a href="#" class="nav-link" data-page="reserve"><i class="fas fa-handshake"></i> رزرو واسطه</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu" id="mobileMenu">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="home"><i class="fas fa-home"></i> صفحه اصلی</a></li>
+                    <li><a href="#" class="nav-link" data-page="shop"><i class="fas fa-shopping-cart"></i> خرید جم</a></li>
+                    <li><a href="#" class="nav-link" data-page="rules"><i class="fas fa-scroll"></i> قوانین</a></li>
+                    <li><a href="#" class="nav-link" data-page="links"><i class="fas fa-link"></i> لینک‌های متفرقه</a></li>
+                    <li><a href="#" class="nav-link" data-page="reserve"><i class="fas fa-handshake"></i> رزرو واسطه</a></li>
+                </ul>
             </div>
         </div>
     </header>
-
+    
     <!-- محتوای اصلی -->
-    <main class="main-content">
-        <div class="container">
-            <!-- صفحه اصلی -->
-            <section id="home" class="page active">
-                <div class="hero">
-                    <h2>به آرتور شاپ خوش آمدید!</h2>
-                    <p>مرکز خرید امن و مطمئن جم و آیتم‌های بازی‌های محبوب موبایل. با بهترین قیمت‌ها و ضمانت تحویل فوری در خدمت شما هستیم.</p>
-                    <button class="cta-button" onclick="switchPage('products')">
-                        <i class="fas fa-shopping-bag"></i> مشاهده محصولات
-                    </button>
-                </div>
+    <div class="main-content">
+        <!-- صفحه اصلی -->
+        <div class="page active" id="home-page">
+            <section class="hero">
+                <h2>به فروشگاه آرتور شاپ خوش آمدید!</h2>
+                <p>مرجع تخصصی خرید و فروش جم و آیتم‌های بازی‌های محبوب موبایل با بهترین قیمت‌ها و سریع‌ترین تحویل</p>
                 
                 <div class="features">
                     <div class="feature-card">
-                        <i class="fas fa-bolt"></i>
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
                         <h3>تحویل فوری</h3>
-                        <p>جم و آیتم‌ها بلافاصله پس از پرداخت به حساب شما اضافه می‌شود</p>
+                        <p>جم و آیتم‌های خریداری شده بلافاصله پس از پرداخت به حساب بازی شما اضافه می‌شود.</p>
                     </div>
+                    
                     <div class="feature-card">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>خرید امن</h3>
-                        <p>با تضمین امنیت کامل اطلاعات و پرداخت‌های شما</p>
+                        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>امنیت کامل</h3>
+                        <p>تمام تراکنش‌ها با امنیت بالا انجام می‌شود و اطلاعات شما محفوظ می‌ماند.</p>
                     </div>
+                    
                     <div class="feature-card">
-                        <i class="fas fa-headset"></i>
+                        <div class="feature-icon"><i class="fas fa-headset"></i></div>
                         <h3>پشتیبانی ۲۴ ساعته</h3>
-                        <p>هر زمان مشکل داشتید، پشتیبان‌های ما آماده کمک هستند</p>
-                    </div>
-                    <div class="feature-card">
-                        <i class="fas fa-tags"></i>
-                        <h3>قیمت مناسب</h3>
-                        <p>با بهترین قیمت‌ها در مقایسه با سایر فروشگاه‌ها</p>
-                    </div>
-                </div>
-                
-                <!-- گردونه شانس -->
-                <div class="wheel-section">
-                    <h2><i class="fas fa-gift"></i> گردونه شانس آرتور شاپ</h2>
-                    <p>شانس خود را امتحان کنید و جایزه‌های ویژه‌ای از جمله تخفیف، جم رایگان و هدیه‌های خاص برنده شوید!</p>
-                    
-                    <div class="wheel-container">
-                        <div class="wheel" id="wheel">
-                            <!-- آیتم‌های گردونه با JavaScript پر می‌شوند -->
-                        </div>
-                        <div class="wheel-center">
-                            <i class="fas fa-gem"></i>
-                        </div>
-                    </div>
-                    
-                    <button class="spin-btn" id="spin-btn">
-                        <i class="fas fa-redo"></i> چرخاندن گردونه
-                    </button>
-                    
-                    <div class="result" id="result">
-                        <h3 id="prize-title">تبریک! شما برنده شدید</h3>
-                        <p id="prize-description">۲۰٪ تخفیف برای خرید بعدی شما</p>
-                        <p>کد تخفیف: <strong id="prize-code">ARTHUR20</strong></p>
+                        <p>تیم پشتیبانی ما به صورت ۲۴ ساعته پاسخگوی سوالات و مشکلات شماست.</p>
                     </div>
                 </div>
             </section>
-
-            <!-- صفحه محصولات -->
-            <section id="products" class="page">
-                <h2 class="page-title">خرید جم و آیتم‌های بازی</h2>
-                
-                <div class="game-filter">
-                    <button class="filter-btn active" data-game="freefire">
-                        <i class="fas fa-fire" style="color: var(--ff-green);"></i> فری فایر
-                    </button>
-                    <button class="filter-btn" data-game="coc">
-                        <i class="fas fa-crown" style="color: var(--coc-green);"></i> کلش آف کلنز
-                    </button>
-                    <button class="filter-btn" data-game="cod">
-                        <i class="fas fa-crosshairs" style="color: var(--cod-red);"></i> کالاف دیوتی
-                    </button>
-                    <button class="filter-btn" data-game="pubg">
-                        <i class="fas fa-bullseye" style="color: var(--pubg-orange);"></i> پابجی موبایل
-                    </button>
+            
+            <section class="testimonials">
+                <h2>نظرات مشتریان</h2>
+                <div class="testimonial-container">
+                    <div class="testimonial">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">ع.ر</div>
+                            <div>
+                                <h4>علی رضایی</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>خریدم از فری فایر انجام شد و کمتر از ۵ دقیقه جم‌ها به حسابم اومد. واقعا حرفه‌ای و مطمئن هستید. ممنون از آرتور شاپ!</p>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">م.ح</div>
+                            <div>
+                                <h4>مریم حسینی</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>برای خرید پک کلش آف کلنز از این سایت استفاده کردم. قیمت‌ها مناسب‌تر از بقیه سایتها بود و پشتیبانی خیلی خوبی داشتند.</p>
+                    </div>
+                    
+                    <div class="testimonial">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">ح.ک</div>
+                            <div>
+                                <h4>حسین کریمی</h4>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p>یک حساب پابجی از طریق واسطه‌گری این سایت فروختم. کارشون واقعا حرفه‌ای بود و پولم رو به موقع و کامل دریافت کردم.</p>
+                    </div>
                 </div>
-                
+            </section>
+        </div>
+        
+        <!-- صفحه فروشگاه -->
+        <div class="page" id="shop-page">
+            <div class="shop-header">
+                <h2>فروشگاه جم و آیتم‌ها</h2>
+                <p>محصولات هر بازی را انتخاب کنید و با بهترین قیمت خریداری نمایید</p>
+            </div>
+            
+            <div class="game-tabs">
+                <button class="game-tab active" data-game="freefire">
+                    <i class="fas fa-fire"></i> فری فایر
+                </button>
+                <button class="game-tab" data-game="clash">
+                    <i class="fas fa-crown"></i> کلش آف کلنز
+                </button>
+                <button class="game-tab" data-game="cod">
+                    <i class="fas fa-crosshairs"></i> کالاف دیوتی
+                </button>
+                <button class="game-tab" data-game="pubg">
+                    <i class="fas fa-skull-crossbones"></i> پابجی موبایل
+                </button>
+            </div>
+            
+            <div class="products-container">
                 <!-- محصولات فری فایر -->
-                <div id="freefire" class="game-section active">
-                    <h3 class="game-title"><i class="fas fa-fire" style="color: var(--ff-green);"></i> جم فری فایر</h3>
-                    <div class="products-grid">
-                        <!-- محصولات با JavaScript پر می‌شوند -->
+                <div class="product-category" id="freefire-products">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #ff9800;"></i></div>
+                            <h3>فری فایر 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem gem"></i>
+                                <span class="gem-count">110</span>
+                                <i class="fas fa-gem gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">150,000 تومان</span>
+                                <span class="current-price">137,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #ff9800;"></i></div>
+                            <h3>فری فایر 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem gem"></i>
+                                <span class="gem-count">231</span>
+                                <i class="fas fa-gem gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">250,000 تومان</span>
+                                <span class="current-price">221,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #ff9800;"></i></div>
+                            <h3>فری فایر 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem gem"></i>
+                                <span class="gem-count">420</span>
+                                <i class="fas fa-gem gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">420,000 تومان</span>
+                                <span class="current-price">383,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #ff9800;"></i></div>
+                            <h3>فری فایر 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem gem"></i>
+                                <span class="gem-count">1060</span>
+                                <i class="fas fa-gem gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">1,050,000 تومان</span>
+                                <span class="current-price">969,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
                     </div>
                 </div>
                 
                 <!-- محصولات کلش آف کلنز -->
-                <div id="coc" class="game-section">
-                    <h3 class="game-title"><i class="fas fa-crown" style="color: var(--coc-green);"></i> جم کلش آف کلنز</h3>
-                    <div class="products-grid">
-                        <!-- محصولات با JavaScript پر می‌شوند -->
+                <div class="product-category" id="clash-products" style="display: none;">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #4CAF50;"></i></div>
+                            <h3>کلش آف کلنز 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem clash-gem"></i>
+                                <span class="gem-count">500</span>
+                                <i class="fas fa-gem clash-gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">170,000 تومان</span>
+                                <span class="current-price">150,000 تومان</span>
+                            </div>
+                            <p>جم سبز براق - تحویل فوری</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #4CAF50;"></i></div>
+                            <h3>کلش آف کلنز 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem clash-gem"></i>
+                                <span class="gem-count">1200</span>
+                                <i class="fas fa-gem clash-gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">380,000 تومان</span>
+                                <span class="current-price">350,000 تومان</span>
+                            </div>
+                            <p>جم سبز براق - تحویل فوری</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-gem" style="color: #4CAF50;"></i></div>
+                            <h3>کلش آف کلنز 💎</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-gem clash-gem"></i>
+                                <span class="gem-count">2500</span>
+                                <i class="fas fa-gem clash-gem"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">750,000 تومان</span>
+                                <span class="current-price">700,000 تومان</span>
+                            </div>
+                            <p>جم سبز براق - تحویل فوری</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-crown" style="color: #FFD700;"></i></div>
+                            <h3>کلش آف کلنز 👑</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-crown" style="color: #FFD700; font-size: 2.5rem;"></i>
+                                <span class="gem-count">Gold Pass</span>
+                                <i class="fas fa-crown" style="color: #FFD700; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">220,000 تومان</span>
+                                <span class="current-price">200,000 تومان</span>
+                            </div>
+                            <p>گلد پس - تحویل فوری</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
                     </div>
                 </div>
                 
                 <!-- محصولات کالاف دیوتی -->
-                <div id="cod" class="game-section">
-                    <h3 class="game-title"><i class="fas fa-crosshairs" style="color: var(--cod-red);"></i> جم کالاف دیوتی موبایل</h3>
-                    <div class="products-grid">
-                        <!-- محصولات با JavaScript پر می‌شوند -->
+                <div class="product-category" id="cod-products" style="display: none;">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-bullseye" style="color: #2196F3;"></i></div>
+                            <h3>کالاف دیوتی 🔫</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-coins" style="color: #2196F3; font-size: 2.5rem;"></i>
+                                <span class="gem-count">80 CP</span>
+                                <i class="fas fa-coins" style="color: #2196F3; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">75,000 تومان</span>
+                                <span class="current-price">70,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-bullseye" style="color: #2196F3;"></i></div>
+                            <h3>کالاف دیوتی 🔫</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-coins" style="color: #2196F3; font-size: 2.5rem;"></i>
+                                <span class="gem-count">400 CP</span>
+                                <i class="fas fa-coins" style="color: #2196F3; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">340,000 تومان</span>
+                                <span class="current-price">320,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-bullseye" style="color: #2196F3;"></i></div>
+                            <h3>کالاف دیوتی 🔫</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-coins" style="color: #2196F3; font-size: 2.5rem;"></i>
+                                <span class="gem-count">800 CP</span>
+                                <i class="fas fa-coins" style="color: #2196F3; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">650,000 تومان</span>
+                                <span class="current-price">620,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-shield-alt" style="color: #FF9800;"></i></div>
+                            <h3>کالاف دیوتی 🛡️</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-trophy" style="color: #FFD700; font-size: 2.5rem;"></i>
+                                <span class="gem-count">Battle Pass</span>
+                                <i class="fas fa-trophy" style="color: #FFD700; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">370,000 تومان</span>
+                                <span class="current-price">350,000 تومان</span>
+                            </div>
+                            <pبتل پس - تحویل فوری</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
                     </div>
                 </div>
                 
                 <!-- محصولات پابجی موبایل -->
-                <div id="pubg" class="game-section">
-                    <h3 class="game-title"><i class="fas fa-bullseye" style="color: var(--pubg-orange);"></i> جم پابجی موبایل</h3>
-                    <div class="products-grid">
-                        <!-- محصولات با JavaScript پر می‌شوند -->
-                    </div>
-                </div>
-            </section>
-
-            <!-- صفحه قوانین -->
-            <section id="rules" class="page">
-                <h2 class="page-title">قوانین و مقررات آرتور شاپ</h2>
-                
-                <div class="rules-container">
-                    <ol class="rules-list" id="rules-list">
-                        <!-- قوانین با JavaScript پر می‌شوند -->
-                    </ol>
-                </div>
-            </section>
-
-            <!-- صفحه لینک‌های متفرقه -->
-            <section id="links" class="page">
-                <h2 class="page-title">خرید و فروش اکانت بازی‌ها</h2>
-                <p style="text-align: center; margin-bottom: 2rem; color: var(--gray);">برای خرید یا فروش اکانت بازی‌های مختلف، به کانال‌های زیر در ایتا مراجعه کنید:</p>
-                
-                <div class="links-container">
-                    <!-- لینک‌ها با JavaScript پر می‌شوند -->
-                </div>
-            </section>
-
-            <!-- صفحه واسطه -->
-            <section id="mediation" class="page">
-                <h2 class="page-title">رزرو واسطه آرتور شاپ</h2>
-                
-                <div class="mediation-container">
-                    <div class="mediation-info">
-                        <h3><i class="fas fa-info-circle"></i> اطلاعات واسطه‌گری</h3>
-                        <p>آرتور شاپ با مدیریت "ادمین سعید آرتور" خدمات واسطه‌گری را برای خرید و فروش امن اکانت‌ها ارائه می‌دهد. واسطه‌گری برای بازی‌های فری فایر و کلش آف کلنز انجام می‌شود و برای بازی‌های دیگر فقط در مورد خرید و فروش اکانت.</p>
-                        <p>مبلغ واسطه بسته به ارزش معامله متغیر است و برای معاملات زیر ۱۰۰ هزار تومان رایگان می‌باشد.</p>
-                        <a href="https://eitaa.com/Admin_Arthur" class="admin-link" target="_blank">
-                            <i class="fas fa-user-tie"></i> ارتباط با ادمین سعید آرتور
-                        </a>
+                <div class="product-category" id="pubg-products" style="display: none;">
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-skull-crossbones" style="color: #FF5722;"></i></div>
+                            <h3>پابجی موبایل ☠️</h3>
+                        </div>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-coins" style="color: #FF5722; font-size: 2.5rem;"></i>
+                                <span class="gem-count">60 UC</span>
+                                <i class="fas fa-coins" style="color: #FF5722; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">60,000 تومان</span>
+                                <span class="current-price">55,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
                     </div>
                     
-                    <h3 style="margin-bottom: 1.5rem; color: var(--dark);">فرم درخواست واسطه</h3>
-                    <form class="mediation-form" id="mediation-form">
-                        <div class="form-group">
-                            <label for="name">نام و نام خانوادگی:</label>
-                            <input type="text" id="name" placeholder="نام کامل خود را وارد کنید" required>
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-skull-crossbones" style="color: #FF5722;"></i></div>
+                            <h3>پابجی موبایل ☠️</h3>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="game">بازی مورد نظر:</label>
-                            <select id="game" required>
-                                <option value="">انتخاب کنید</option>
-                                <option value="freefire">فری فایر</option>
-                                <option value="coc">کلش آف کلنز</option>
-                                <option value="cod">کالاف دیوتی موبایل</option>
-                                <option value="pubg">پابجی موبایل</option>
-                                <option value="other">سایر بازی‌ها</option>
-                            </select>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-coins" style="color: #FF5722; font-size: 2.5rem;"></i>
+                                <span class="gem-count">325 UC</span>
+                                <i class="fas fa-coins" style="color: #FF5722; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">300,000 تومان</span>
+                                <span class="current-price">280,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="type">نوع درخواست:</label>
-                            <select id="type" required>
-                                <option value="">انتخاب کنید</option>
-                                <option value="buy">خرید اکانت</option>
-                                <option value="sell">فروش اکانت</option>
-                                <option value="mediation">واسطه‌گری برای معامله</option>
-                            </select>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-skull-crossbones" style="color: #FF5722;"></i></div>
+                            <h3>پابجی موبایل ☠️</h3>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="value">ارزش تقریبی معامله (تومان):</label>
-                            <input type="number" id="value" placeholder="مثلا: 500000" required>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-coins" style="color: #FF5722; font-size: 2.5rem;"></i>
+                                <span class="gem-count">660 UC</span>
+                                <i class="fas fa-coins" style="color: #FF5722; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">580,000 تومان</span>
+                                <span class="current-price">550,000 تومان</span>
+                            </div>
+                            <p>تحویل فوری - پرداخت آنلاین</p>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="details">توضیحات بیشتر:</label>
-                            <textarea id="details" rows="4" placeholder="جزئیات بیشتری در مورد درخواست خود بنویسید..."></textarea>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
+                    
+                    <div class="product-card">
+                        <div class="product-header">
+                            <div class="product-icon"><i class="fas fa-crown" style="color: #FFD700;"></i></div>
+                            <h3>پابجی موبایل 👑</h3>
                         </div>
-                        
-                        <button type="submit" class="submit-btn">
-                            <i class="fas fa-paper-plane"></i> ارسال درخواست
-                        </button>
-                    </form>
+                        <div class="product-details">
+                            <div class="gem-animation">
+                                <i class="fas fa-crown" style="color: #FFD700; font-size: 2.5rem;"></i>
+                                <span class="gem-count">Royale Pass</span>
+                                <i class="fas fa-crown" style="color: #FFD700; font-size: 2.5rem;"></i>
+                            </div>
+                            <div class="price-container">
+                                <span class="old-price">370,000 تومان</span>
+                                <span class="current-price">350,000 تومان</span>
+                            </div>
+                            <p>رویال پس - تحویل فوری</p>
+                        </div>
+                        <a href="https://eitaa.com/Admin_Arthur" class="buy-btn" target="_blank">خرید محصول</a>
+                    </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </main>
-
+        
+        <!-- صفحه قوانین -->
+        <div class="page" id="rules-page">
+            <div class="rules-container">
+                <div class="rules-header">
+                    <h2>⭕️ قوانین و مقررات آرتور شاپ ⭕️</h2>
+                    <p>لطفاً قبل از هرگونه خرید یا استفاده از خدمات، قوانین را به دقت مطالعه فرمایید</p>
+                </div>
+                
+                <div class="rules-content">
+                    <div class="rule-section">
+                        <h3>ساعات پاسخگویی</h3>
+                        <p>ساعات پاسخگویی ما از ساعت 9 صبح الی 20:00 شب می باشد.</p>
+                    </div>
+                    
+                    <div class="rule-section">
+                        <h3>ثبت سفارش</h3>
+                        <p>در هنگام ثبت سفارش دقت داشته باشید که اطلاعات مورد نظر را درست بدهید. در صورت اشتباه دادن اطلاعات پنج هزار تومان کسر خواهد شد به دلیل دوباره کردن کار ما. و اگر سفارش خریداری شده را به هر دلیلی لغو کنید ده هزار تومان کسر خواهد شود. ☑️</p>
+                    </div>
+                    
+                    <div class="rule-section">
+                        <h3>خرید برای افراد زیر 18 سال</h3>
+                        <p>خرید پک های قیمت بالای یک میلیون تومن توسط اشخاص یا افراد زیر هجده سال ممنوع می باشد و از آنجایی که در خرید های اینترنتی شناسایی سن اشخاص و افراد برای ما امکان پذیر نمی باشد در صورت خرید و دریافت پک امکان بازگشت وجه امکان پذیر نمی باشد. و [مسئولیت در اختیار گذاشتن اطلاعات کارت بانکی بر عهده والدین می باشد و آرتور شاپ هیچگونه مسئولیتی در قبال این موضوع را نمی پذیرد]</p>
+                        <p>فقط در صورتی افراد زیر هجده سال می‌توانند مبلغ بالای یک میلیون تومن از ما خریداری کنند که احراز هویت انجام بدهند(با اجازه والدین).</p>
+                    </div>
+                    
+                    <div class="rule-section">
+                        <h3>توجه به سرور و موجودی</h3>
+                        <p>هنگام ثبت سفارش دقت کنید که سرور اکانت شما خاور باشد و پک مورد نظر را درون اکانت خود داشته باشید و مشاهده کنید.</p>
+                    </div>
+                    
+                    <div class="rule-section">
+                        <h3>کارمزد لغو سفارش</h3>
+                        <p>در صورت لغو از طرف خریدار: مبلغ‌های زیر ۱۰۰ هزار تومان: 5% کارمزد لغو کسر می‌شود و مبلغ‌های بالای ۱۰۰ هزار تومان: 10% از مبلغ کل به‌عنوان کارمزد کسر می‌شود.</p>
+                    </div>
+                    
+                    <div class="rule-section">
+                        <h3>کارمزد فروش اکانت</h3>
+                        <p>بعد از فروش اکانتتون در کانال آرتور شاپ بسته به مبلغ اکانتتون 5٪ درصد الی 20٪ درصد کسر خواهد شد.</p>
+                    </div>
+                    
+                    <div class="rule-section">
+                        <h3>⚖ قوانین مربوط به واسطه‌گری کانال آرتور شاپ:</h3>
+                        <ul>
+                            <li>انجام تمام خدمات این کانال از جمله فروش جم، واسطه و غیره توسط مدیریت کانال یعنی "ادمین سعید آرتور" انجام می‌شود (با آیدی: @Admin_Arthur) و هیچ ادمین دیگری وجود ندارد در حال حاضر.</li>
+                            <li>آرتور شاپ فقط واسطه گری گیم هایی مانند فری فایر، کلش آف کلنز را فقط می پذیرد و در گیم های دیگر مانند کالاف و پابجی و غیره فقط در صورتی که معامله شما خرید اکانت یا فروش اکانت باشد واسطه پذیرفته می‌شود.</li>
+                            <li>در معاملاتی که ارزش آن کمتر از 100,000 تومان است کاملا رایگان کانال آرتور شاپ مدیریت واسطه آن معامله را می پذیرد اما فقط در صورتی که معامله طاق نباشد و خریدار دانش کافی برای ذخیره اکانت و تضمین امنیت اکانت خود را داشته باشد چون آرتور شاپ هیچ مسئولیتی در قبال (تبر) سواستفاده شدن پس از معامله را نمی پذیرد.</li>
+                            <li>مبلغ واسطه بسته بر ارزش معاملات شماست و مبلغ مشخصی ندارد.</li>
+                            <li>برای تضمین امنیت در معاملات شما ، تسویه 3 روز الی نهایت 7 روز زمان می باشد.</li>
+                        </ul>
+                        <p style="text-align: center; margin-top: 20px; color: #ff9800; font-weight: bold;">تشکر از توجه شما ( آرتور شاپ ) 🌹</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه لینک‌های متفرقه -->
+        <div class="page" id="links-page">
+            <div class="links-container">
+                <div class="links-header">
+                    <h2>لینک‌های متفرقه</h2>
+                    <p>خرید و فروش اکانت‌های بازی‌های مختلف و عضویت در کانال‌های مربوطه</p>
+                </div>
+                
+                <div class="links-grid">
+                    <div class="link-card">
+                        <div class="link-icon"><i class="fas fa-fire"></i></div>
+                        <h3>کانال فری فایر</h3>
+                        <p>خرید و فروش اکانت‌های فری فایر، جم و آیتم‌های بازی</p>
+                        <a href="https://eitaa.com/joinchat/2959344304Cd08d195ff8" class="link-btn" target="_blank">عضویت در کانال</a>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-icon"><i class="fas fa-crosshairs"></i></div>
+                        <h3>کانال کالاف دیوتی</h3>
+                        <p>خرید و فروش اکانت‌های کالاف دیوتی، CP و بتل پس</p>
+                        <a href="https://eitaa.com/joinchat/3410363209Cf851943330" class="link-btn" target="_blank">عضویت در کانال</a>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-icon"><i class="fas fa-skull-crossbones"></i></div>
+                        <h3>کانال پابجی موبایل</h3>
+                        <p>خرید و فروش اکانت‌های پابجی، UC و رویال پس</p>
+                        <a href="https://eitaa.com/joinchat/3832742729C03df6728a6" class="link-btn" target="_blank">عضویت در کانال</a>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-icon"><i class="fas fa-crown"></i></div>
+                        <h3>کانال کلش آف کلنز</h3>
+                        <p>خرید و فروش اکانت‌های کلش، جم و گلد پس</p>
+                        <a href="https://eitaa.com/joinchat/3880976601C5de0e28fb9" class="link-btn" target="_blank">عضویت در کانال</a>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3>کانال اصلی آرتور شاپ</h3>
+                        <p>اخبار فری فایر، اطلاعیه‌ها و محصولات جدید</p>
+                        <a href="https://eitaa.com/joinchat/4130603291Cff5520430f" class="link-btn" target="_blank">عضویت در کانال</a>
+                    </div>
+                    
+                    <div class="link-card">
+                        <div class="link-icon"><i class="fas fa-user-tie"></i></div>
+                        <h3>ادمین اصلی آرتور شاپ</h3>
+                        <p>برای خرید مستقیم محصولات، مشاوره و پشتیبانی</p>
+                        <a href="https://eitaa.com/Admin_Arthur" class="link-btn" target="_blank">ارتباط با ادمین</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- صفحه رزرو واسطه -->
+        <div class="page" id="reserve-page">
+            <div class="reserve-container">
+                <div class="reserve-header">
+                    <h2>رزرو واسطه آرتور شاپ</h2>
+                    <p>برای تضمین معاملات خود از خدمات واسطه‌گری ما استفاده کنید</p>
+                </div>
+                
+                <form class="reserve-form" id="reserveForm">
+                    <div class="form-group">
+                        <label for="fullName"><i class="fas fa-user"></i> نام و نام خانوادگی</label>
+                        <input type="text" id="fullName" required placeholder="نام کامل خود را وارد کنید">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> شماره تماس</label>
+                        <input type="tel" id="phone" required placeholder="شماره تماس خود را وارد کنید">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="game"><i class="fas fa-gamepad"></i> بازی مورد نظر</label>
+                        <select id="game" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="freefire">فری فایر</option>
+                            <option value="clash">کلش آف کلنز</option>
+                            <option value="cod">کالاف دیوتی</option>
+                            <option value="pubg">پابجی موبایل</option>
+                            <option value="other">سایر بازی‌ها</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="transactionType"><i class="fas fa-exchange-alt"></i> نوع معامله</label>
+                        <select id="transactionType" required>
+                            <option value="">انتخاب کنید</option>
+                            <option value="buy">خرید اکانت</option>
+                            <option value="sell">فروش اکانت</option>
+                            <option value="other">سایر</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description"><i class="fas fa-align-left"></i> توضیحات معامله</label>
+                        <textarea id="description" rows="4" required placeholder="جزئیات معامله، قیمت پیشنهادی و سایر اطلاعات را وارد کنید"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="reserve-btn">ارسال درخواست واسطه</button>
+                </form>
+                
+                <div class="reserve-note">
+                    <h4><i class="fas fa-info-circle"></i> نکات مهم:</h4>
+                    <p>• پس از ارسال فرم، ادمین اصلی آرتور شاپ با شما در ایتا ارتباط خواهد گرفت.</p>
+                    <p>• واسطه‌گری فقط برای معاملات بالای 100,000 تومان انجام می‌شود.</p>
+                    <p>• برای معاملات زیر 100,000 تومان، واسطه‌گری رایگان است (با شرایط خاص).</p>
+                    <p>• مدت زمان تسویه حساب 3 تا 7 روز کاری می‌باشد.</p>
+                    <p>• برای ارتباط سریع‌تر می‌توانید مستقیم به <a href="https://eitaa.com/Admin_Arthur" target="_blank" style="color: #ff9800; font-weight: bold;">@Admin_Arthur</a> در ایتا پیام دهید.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <!-- فوتر -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>آرتور شاپ</h3>
-                    <p>فروشگاه تخصصی جم و آیتم‌های بازی‌های آنلاین موبایل. با سال‌ها تجربه و هزاران مشتری راضی در خدمت شما بازیکنان عزیز هستیم.</p>
-                    <div class="social-icons">
-                        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>لینک‌های سریع</h3>
-                    <ul class="footer-links">
-                        <li><a href="#" onclick="switchPage('home')"><i class="fas fa-chevron-left"></i> صفحه اصلی</a></li>
-                        <li><a href="#" onclick="switchPage('products')"><i class="fas fa-chevron-left"></i> خرید جم</a></li>
-                        <li><a href="#" onclick="switchPage('rules')"><i class="fas fa-chevron-left"></i> قوانین</a></li>
-                        <li><a href="#" onclick="switchPage('links')"><i class="fas fa-chevron-left"></i> خرید اکانت</a></li>
-                        <li><a href="#" onclick="switchPage('mediation')"><i class="fas fa-chevron-left"></i> رزرو واسطه</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>ارتباط با ما</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://eitaa.com/Admin_Arthur" target="_blank"><i class="fas fa-user-tie"></i> ادمین سعید آرتور</a></li>
-                        <li><a href="#"><i class="fas fa-phone"></i> پشتیبانی: ۰۹۱۲XXX۵۶۷۸</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> ایمیل: info@arthur-shop.ir</a></li>
-                        <li><a href="#"><i class="fas fa-clock"></i> ساعات کاری: ۹:۰۰ تا ۲۰:۰۰</a></li>
-                    </ul>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>آرتور شاپ</h3>
+                <p>مرجع تخصصی خرید و فروش جم و آیتم‌های بازی‌های آنلاین با بیش از 3 سال سابقه فعالیت و هزاران مشتری راضی</p>
+                <div class="social-links">
+                    <a href="https://eitaa.com/Admin_Arthur" class="social-icon" target="_blank"><i class="fas fa-user-tie"></i></a>
+                    <a href="https://eitaa.com/joinchat/4130603291Cff5520430f" class="social-icon" target="_blank"><i class="fas fa-shopping-cart"></i></a>
                 </div>
             </div>
             
-            <div class="copyright">
-                <p>© کلیه حقوق این وبسایت برای آرتور شاپ محفوظ است. ۱۴۰۳</p>
+            <div class="footer-section">
+                <h3>لینک‌های سریع</h3>
+                <a href="#" class="footer-link" data-page="home">صفحه اصلی</a>
+                <a href="#" class="footer-link" data-page="shop">خرید جم</a>
+                <a href="#" class="footer-link" data-page="rules">قوانین و مقررات</a>
+                <a href="#" class="footer-link" data-page="links">لینک‌های متفرقه</a>
+                <a href="#" class="footer-link" data-page="reserve">رزرو واسطه</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>ارتباط با ما</h3>
+                <p><i class="fas fa-phone"></i> پشتیبانی: از طریق ایتا</p>
+                <p><i class="fas fa-clock"></i> ساعات پاسخگویی: 9 صبح تا 20 شب</p>
+                <p><i class="fas fa-envelope"></i> ادمین اصلی: @Admin_Arthur</p>
+                <p><i class="fas fa-shield-alt"></i> تضمین امنیت و صحت معاملات</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>بازی‌های پشتیبانی شده</h3>
+                <p>• فری فایر (Garena Free Fire)</p>
+                <p>• کلش آف کلنز (Clash of Clans)</p>
+                <p>• کالاف دیوتی موبایل (Call of Duty Mobile)</p>
+                <p>• پابجی موبایل (PUBG Mobile)</p>
             </div>
         </div>
+        
+        <div class="copyright">
+            <p>تمامی حقوق این وبسایت متعلق به آرتور شاپ می‌باشد © ۱۴۰۳</p>
+            <p>طراحی و توسعه شده با ❤️ برای جامعه گیمرهای ایرانی</p>
+        </div>
     </footer>
-
+    
+    <!-- نوتیفیکیشن -->
+    <div class="notification" id="notification">
+        <span id="notificationText">درخواست شما با موفقیت ثبت شد!</span>
+    </div>
+    
+    <!-- اسکریپت‌های JavaScript -->
     <script>
-        // داده‌های محصولات
-        const products = {
-            freefire: [
-                { id: 1, name: "110 الماس", oldPrice: "150,000", price: "137,000", badge: "پرفروش", diamondClass: "" },
-                { id: 2, name: "231 الماس", oldPrice: "245,000", price: "221,000", badge: "تخفیف ویژه", diamondClass: "" },
-                { id: 3, name: "420 الماس", oldPrice: "425,000", price: "383,000", badge: "پیشنهاد ویژه", diamondClass: "" },
-                { id: 4, name: "1060 الماس", oldPrice: "1,050,000", price: "969,000", badge: "اقتصادی", diamondClass: "" }
-            ],
-            coc: [
-                { id: 1, name: "500 جم", oldPrice: "180,000", price: "150,000", badge: "تخفیف", diamondClass: "coc-diamond" },
-                { id: 2, name: "1200 جم", oldPrice: "400,000", price: "350,000", badge: "پیشنهاد", diamondClass: "coc-diamond" },
-                { id: 3, name: "2500 جم", oldPrice: "780,000", price: "700,000", badge: "اقتصادی", diamondClass: "coc-diamond" },
-                { id: 4, name: "Gold Pass", oldPrice: "250,000", price: "200,000", badge: "ویژه", diamondClass: "" }
-            ],
-            cod: [
-                { id: 1, name: "80 CP", oldPrice: "85,000", price: "70,000", badge: "تخفیف", diamondClass: "" },
-                { id: 2, name: "400 CP", oldPrice: "350,000", price: "320,000", badge: "پرفروش", diamondClass: "" },
-                { id: 3, name: "800 CP", oldPrice: "680,000", price: "620,000", badge: "اقتصادی", diamondClass: "" },
-                { id: 4, name: "Battle Pass", oldPrice: "380,000", price: "350,000", badge: "ویژه", diamondClass: "" }
-            ],
-            pubg: [
-                { id: 1, name: "60 UC", oldPrice: "65,000", price: "55,000", badge: "تخفیف", diamondClass: "" },
-                { id: 2, name: "325 UC", oldPrice: "310,000", price: "280,000", badge: "پیشنهاد", diamondClass: "" },
-                { id: 3, name: "660 UC", oldPrice: "600,000", price: "550,000", badge: "اقتصادی", diamondClass: "" },
-                { id: 4, name: "Royale Pass", oldPrice: "380,000", price: "350,000", badge: "ویژه", diamondClass: "" }
-            ]
-        };
-
-        // داده‌های قوانین
-        const rules = [
-            { title: "ساعات پاسخگویی", text: "ساعات پاسخگویی ما از ساعت 9 صبح الی 20:00 شب می باشد." },
-            { title: "اطلاعات سفارش", text: "در هنگام ثبت سفارش دقت داشته باشید که اطلاعات مورد نظر را درست بدهید. در صورت اشتباه دادن اطلاعات پنج هزار تومان کسر خواهد شد به دلیل دوباره کردن کار ما. و اگر سفارش خریداری شده را به هر دلیلی لغو کنید ده هزار تومان کسر خواهد شد." },
-            { title: "خرید افراد زیر هجده سال", text: "خرید پک های قیمت بالای یک میلیون تومن توسط اشخاص یا افراد زیر هجده سال ممنوع می باشد و از آنجایی که در خرید های اینترنتی شناسایی سن اشخاص و افراد برای ما امکان پذیر نمی باشد در صورت خرید و دریافت پک امکان بازگشت وجه امکان پذیر نمی باشد. و مسئولیت در اختیار گذاشتن اطلاعات کارت بانکی بر عهده والدین می باشد و آرتور شاپ هیچگونه مسئولیتی در قبال این موضوع را نمی پذیرد. فقط در صورتی افراد زیر هجده سال می‌توانند مبلغ بالای یک میلیون تومن از ما خریداری کنند که احراز هویت انجام بدهند(با اجازه والدین)." },
-            { title: "ثبت سفارش", text: "هنگام ثبت سفارش دقت کنید که سرور اکانت شما خاور باشد و پک مورد نظر را درون اکانت خود داشته باشید و مشاهده کنید." },
-            { title: "لغو سفارش", text: "در صورت لغو از طرف خریدار: مبلغ‌های زیر ۱۰۰ هزار تومان: 5% کارمزد لغو کسر می‌شود و مبلغ‌های بالای ۱۰۰ هزار تومان: 10% از مبلغ کل به‌عنوان کارمزد کسر می‌شود." },
-            { title: "فروش اکانت", text: "بعد از فروش اکانتتون در کانال آرتور شاپ بسته به مبلغ اکانتتون 5٪ درصد الی 20٪ درصد کسر خواهد شد." },
-            { title: "قوانین واسطه‌گری", text: "انجام تمام خدمات این کانال از جمله فروش جم، واسطه و غیره توسط مدیریت کانال یعنی 'ادمین سعید آرتور' انجام می‌شود (با آیدی: @Admin_Arthur) و هیچ ادمین دیگری وجود ندارد در حال حاضر." },
-            { title: "بازی‌های قابل واسطه‌گری", text: "آرتور شاپ فقط واسطه گری گیم هایی مانند فری فایر، کلش آف کلنز را فقط می پذیرد و در گیم های دیگر مانند کالاف و پابجی و غیره فقط در صورتی که معامله شما خرید اکانت یا فروش اکانت باشد واسطه پذیرفته می‌شود." },
-            { title: "واسطه‌گری رایگان", text: "در معاملاتی که ارزش آن کمتر از 100 هزار تومن است کاملا رایگان کانال آرتور شاپ مدیریت واسطه آن معامله را می پذیرد اما فقط در صورتی که معامله طاق نباشد و خریدار دانش کافی برای ذخیره اکانت و تضمین امنیت اکانت خود را داشته باشد چون آرتور شاپ هیچ مسئولیتی در قبال (تبر) سواستفاده شدن پس از معامله را نمی پذیرد." },
-            { title: "مبلغ و زمان واسطه", text: "مبلغ واسطه بسته بر ارزش معاملات شماست و مبلغ مشخصی ندارد. برای تضمین امنیت در معاملات شما، تسویه 3 روز الی نهایت 7 روز زمان می باشد." }
-        ];
-
-        // داده‌های لینک‌های متفرقه
-        const links = [
-            { icon: "fas fa-fire", title: "کانال فری فایر", url: "https://eitaa.com/joinchat/2959344304Cd08d195ff8", description: "برای خرید و فروش اکانت فری فایر" },
-            { icon: "fas fa-crosshairs", title: "کانال کالاف دیوتی", url: "https://eitaa.com/joinchat/3410363209Cf851943330", description: "برای خرید و فروش اکانت کالاف دیوتی" },
-            { icon: "fas fa-bullseye", title: "کانال پابجی موبایل", url: "https://eitaa.com/joinchat/3832742729C03df6728a6", description: "برای خرید و فروش اکانت پابجی موبایل" },
-            { icon: "fas fa-crown", title: "کانال کلش آف کلنز", url: "https://eitaa.com/joinchat/3880976601C5de0e28fb9", description: "برای خرید و فروش اکانت کلش آف کلنز" },
-            { icon: "fas fa-store", title: "کانال اصلی آرتور شاپ", url: "https://eitaa.com/joinchat/4130603291Cff5520430f", description: "اخبار فری فایر و سایر اطلاعات" }
-        ];
-
-        // داده‌های گردونه شانس
-        const wheelPrizes = [
-            { title: "تخفیف ۱۰٪", description: "برای خرید بعدی شما", code: "ARTHUR10", color: "#ff6b35" },
-            { title: "تخفیف ۲۰٪", description: "برای خرید بعدی شما", code: "ARTHUR20", color: "#4a6fa5" },
-            { title: "جم رایگان", description: "۵۰ الماس فری فایر", code: "FREE50", color: "#00cc00" },
-            { title: "کد هدیه", description: "هدیه ویژه آرتور شاپ", code: "GIFT2024", color: "#ffd166" },
-            { title: "تخفیف ۱۵٪", description: "برای خرید بعدی شما", code: "ARTHUR15", color: "#ff3333" },
-            { title: "شانس دوباره", description: "یک بار دیگر گردونه بچرخانید", code: "SPINAGAIN", color: "#ff9900" },
-            { title: "جم رایگان", description: "۱۰۰ جم کلش آف کلنز", code: "COC100", color: "#00cc66" },
-            { title: "تخفیف ۵٪", description: "برای خرید بعدی شما", code: "ARTHUR5", color: "#9c27b0" }
-        ];
-
-        // متغیرهای گردونه
-        let isSpinning = false;
-        let currentRotation = 0;
-
-        // تابع تغییر صفحه
-        function switchPage(pageId) {
-            // غیرفعال کردن همه صفحات
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
+        // مدیریت صفحات و ناوبری
+        document.addEventListener('DOMContentLoaded', function() {
+            // انتخاب تمام لینک‌های ناوبری
+            const navLinks = document.querySelectorAll('.nav-link, .footer-link');
+            const pages = document.querySelectorAll('.page');
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
             
-            // فعال کردن صفحه مورد نظر
-            document.getElementById(pageId).classList.add('active');
-            
-            // به روز رسانی تب‌های فعال
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-page') === pageId) {
-                    btn.classList.add('active');
+            // تابع تغییر صفحه
+            function changePage(pageId) {
+                // مخفی کردن تمام صفحات
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // نمایش صفحه انتخاب شده
+                document.getElementById(pageId).classList.add('active');
+                
+                // به‌روزرسانی لینک‌های فعال
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('data-page') === pageId.replace('-page', '')) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // بستن منوی موبایل در صورت باز بودن
+                if (mobileMenu.classList.contains('active')) {
+                    mobileMenu.classList.remove('active');
                 }
+            }
+            
+            // اضافه کردن رویداد کلیک به لینک‌ها
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page') + '-page';
+                    changePage(pageId);
+                    
+                    // اسکرول به بالای صفحه
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
             });
             
-            // اسکرول به بالا
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // تابع تغییر فیلتر بازی
-        function switchGame(gameId) {
-            // غیرفعال کردن همه بخش‌های بازی
-            document.querySelectorAll('.game-section').forEach(section => {
-                section.classList.remove('active');
+            // مدیریت تب‌های بازی‌ها در صفحه فروشگاه
+            const gameTabs = document.querySelectorAll('.game-tab');
+            const productCategories = document.querySelectorAll('.product-category');
+            
+            gameTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // حذف کلاس active از تمام تب‌ها
+                    gameTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // اضافه کردن کلاس active به تب کلیک شده
+                    this.classList.add('active');
+                    
+                    // مخفی کردن تمام دسته‌بندی‌های محصولات
+                    productCategories.forEach(category => {
+                        category.style.display = 'none';
+                    });
+                    
+                    // نمایش دسته‌بندی مربوطه
+                    const game = this.getAttribute('data-game');
+                    document.getElementById(game + '-products').style.display = 'block';
+                });
             });
             
-            // فعال کردن بخش بازی مورد نظر
-            document.getElementById(gameId).classList.add('active');
-            
-            // به روز رسانی دکمه‌های فیلتر
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-game') === gameId) {
-                    btn.classList.add('active');
-                }
+            // مدیریت منوی موبایل
+            mobileMenuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('active');
             });
             
-            // بارگذاری محصولات بازی مورد نظر
-            loadProducts(gameId);
-        }
-
-        // تابع بارگذاری محصولات
-        function loadProducts(gameId) {
-            const productsGrid = document.querySelector(`#${gameId} .products-grid`);
-            if (!productsGrid) return;
+            // مدیریت فرم رزرو واسطه
+            const reserveForm = document.getElementById('reserveForm');
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
             
-            productsGrid.innerHTML = '';
-            
-            products[gameId].forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
+            reserveForm.addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // انتخاب آیکون مناسب بر اساس بازی
-                let diamondIcon = 'fas fa-gem';
-                if (gameId === 'freefire') diamondIcon = 'fas fa-fire';
-                if (gameId === 'coc') diamondIcon = 'fas fa-crown';
-                if (gameId === 'cod') diamondIcon = 'fas fa-crosshairs';
-                if (gameId === 'pubg') diamondIcon = 'fas fa-bullseye';
+                // در حالت واقعی، اطلاعات به سرور ارسال می‌شود
+                // اینجا فقط یک پیام موفقیت نمایش می‌دهیم
+                notificationText.textContent = 'درخواست شما با موفقیت ثبت شد! ادمین به زودی با شما تماس خواهد گرفت.';
+                notification.classList.add('show');
                 
-                productCard.innerHTML = `
-                    <div class="product-header">
-                        <span class="product-badge">${product.badge}</span>
-                        <div class="diamond ${product.diamondClass}">
-                            <i class="${diamondIcon}"></i>
-                        </div>
-                        <div class="product-name">${product.name}</div>
-                    </div>
-                    <div class="product-body">
-                        <div class="price-container">
-                            <div class="old-price">${product.oldPrice} تومان</div>
-                            <div class="current-price">${product.price} تومان</div>
-                        </div>
-                        <button class="buy-btn" onclick="buyProduct('${gameId}', ${product.id})">
-                            <i class="fas fa-shopping-cart"></i> خرید محصول
-                        </button>
-                    </div>
-                `;
+                // ریست فرم
+                reserveForm.reset();
                 
-                productsGrid.appendChild(productCard);
+                // مخفی کردن نوتیفیکیشن پس از 5 ثانیه
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 5000);
+                
+                // اسکرول به بالای فرم
+                window.scrollTo({ top: reserveForm.offsetTop - 100, behavior: 'smooth' });
             });
-        }
-
-        // تابع خرید محصول
-        function buyProduct(gameId, productId) {
-            const product = products[gameId].find(p => p.id === productId);
-            if (!product) return;
             
-            // بازی‌های مختلف
-            const gameNames = {
-                freefire: "فری فایر",
-                coc: "کلش آف کلنز",
-                cod: "کالاف دیوتی موبایل",
-                pubg: "پابجی موبایل"
-            };
+            // ایجاد الماس‌های شناور در پس‌زمینه
+            createFloatingElements();
             
-            alert(`در حال انتقال به صفحه پرداخت برای ${product.name} ${gameNames[gameId]} به مبلغ ${product.price} تومان\n\nتوجه: برای تکمیل خرید با ادمین سعید آرتور در ایتا تماس بگیرید:\nhttps://eitaa.com/Admin_Arthur`);
-            
-            // در حالت واقعی، کاربر به صفحه پرداخت هدایت می‌شد
-            // window.open(`https://eitaa.com/Admin_Arthur?product=${gameId}-${productId}`, '_blank');
-        }
-
-        // تابع بارگذاری قوانین
-        function loadRules() {
-            const rulesList = document.getElementById('rules-list');
-            if (!rulesList) return;
-            
-            rulesList.innerHTML = '';
-            
-            rules.forEach(rule => {
-                const ruleItem = document.createElement('li');
-                ruleItem.className = 'rule-item';
-                ruleItem.innerHTML = `
-                    <div class="rule-title">${rule.title}</div>
-                    <div class="rule-text">${rule.text}</div>
-                `;
-                
-                rulesList.appendChild(ruleItem);
-            });
-        }
-
-        // تابع بارگذاری لینک‌ها
-        function loadLinks() {
-            const linksContainer = document.querySelector('.links-container');
-            if (!linksContainer) return;
-            
-            linksContainer.innerHTML = '';
-            
-            links.forEach(link => {
-                const linkCard = document.createElement('div');
-                linkCard.className = 'link-card';
-                linkCard.innerHTML = `
-                    <i class="${link.icon}"></i>
-                    <h3>${link.title}</h3>
-                    <p>${link.description}</p>
-                    <a href="${link.url}" class="link-btn" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> ورود به کانال
-                    </a>
-                `;
-                
-                linksContainer.appendChild(linkCard);
-            });
-        }
-
-        // تابع ایجاد گردونه شانس
-        function createWheel() {
-            const wheel = document.getElementById('wheel');
-            if (!wheel) return;
-            
-            wheel.innerHTML = '';
-            
-            const prizeCount = wheelPrizes.length;
-            const anglePerPrize = 360 / prizeCount;
-            
-            wheelPrizes.forEach((prize, index) => {
-                const wheelItem = document.createElement('div');
-                wheelItem.className = 'wheel-item';
-                wheelItem.style.backgroundColor = prize.color;
-                wheelItem.style.transform = `rotate(${index * anglePerPrize}deg)`;
-                
-                const text = document.createElement('div');
-                text.innerHTML = prize.title;
-                text.style.transform = `rotate(${anglePerPrize/2}deg)`;
-                text.style.transformOrigin = '0 0';
-                text.style.position = 'absolute';
-                text.style.left = '60%';
-                text.style.top = '10%';
-                text.style.width = '100%';
-                text.style.textAlign = 'left';
-                text.style.fontSize = '14px';
-                
-                wheelItem.appendChild(text);
-                wheel.appendChild(wheelItem);
-            });
-        }
-
-        // تابع چرخاندن گردونه
-        function spinWheel() {
-            if (isSpinning) return;
-            
-            isSpinning = true;
-            const spinBtn = document.getElementById('spin-btn');
-            const wheel = document.getElementById('wheel');
-            const result = document.getElementById('result');
-            
-            // غیرفعال کردن دکمه
-            spinBtn.disabled = true;
-            spinBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> در حال چرخش...';
-            
-            // پنهان کردن نتیجه قبلی
-            result.classList.remove('active');
-            
-            // چرخش تصادفی (بین 3 تا 5 دور کامل + جایزه تصادفی)
-            const spins = 3 + Math.floor(Math.random() * 3);
-            const prizeIndex = Math.floor(Math.random() * wheelPrizes.length);
-            const prize = wheelPrizes[prizeIndex];
-            
-            // زاویه چرخش نهایی
-            const anglePerPrize = 360 / wheelPrizes.length;
-            const finalRotation = spins * 360 + (prizeIndex * anglePerPrize);
-            
-            // اعمال چرخش با انیمیشن
-            currentRotation += finalRotation;
-            wheel.style.transform = `rotate(${currentRotation}deg)`;
-            
-            // نمایش نتیجه پس از اتمام چرخش
+            // نمایش نوتیفیکیشن خوش‌آمدگویی
             setTimeout(() => {
-                document.getElementById('prize-title').textContent = `تبریک! شما ${prize.title} برنده شدید`;
-                document.getElementById('prize-description').textContent = prize.description;
-                document.getElementById('prize-code').textContent = prize.code;
+                notificationText.textContent = 'به فروشگاه آرتور شاپ خوش آمدید! بهترین قیمت‌ها و سریع‌ترین تحویل را تجربه کنید.';
+                notification.classList.add('show');
                 
-                result.classList.add('active');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 4000);
+            }, 1000);
+        });
+        
+        // تابع ایجاد الماس‌های شناور در پس‌زمینه
+        function createFloatingElements() {
+            const particlesContainer = document.getElementById('particles-js');
+            const emojis = ['💎', '👑', '⚔️', '🛡️', '🎮', '🔥', '⭐', '🎯'];
+            const colors = ['#ff9800', '#4CAF50', '#2196F3', '#FF5722', '#FFD700', '#9C27B0'];
+            
+            // ایجاد 20 الماس شناور
+            for (let i = 0; i < 20; i++) {
+                const floatingElement = document.createElement('div');
+                floatingElement.className = 'floating-element';
                 
-                // فعال کردن دکمه
-                spinBtn.disabled = false;
-                spinBtn.innerHTML = '<i class="fas fa-redo"></i> چرخاندن گردونه';
-                isSpinning = false;
+                // انتخاب تصادفی ایموجی و رنگ
+                const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
                 
-                // اسکرول به نتیجه
-                result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                floatingElement.innerHTML = randomEmoji;
+                floatingElement.style.color = randomColor;
+                floatingElement.style.fontSize = Math.random() * 30 + 20 + 'px';
+                floatingElement.style.top = Math.random() * 100 + 'vh';
+                floatingElement.style.left = Math.random() * 100 + 'vw';
+                floatingElement.style.animationDuration = Math.random() * 30 + 20 + 's';
+                floatingElement.style.animationDelay = Math.random() * 5 + 's';
+                
+                particlesContainer.appendChild(floatingElement);
+            }
+        }
+        
+        // تابع نمایش نوتیفیکیشن
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
             }, 5000);
         }
-
-        // تابع ثبت فرم واسطه
-        function submitMediationForm(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const game = document.getElementById('game').value;
-            const type = document.getElementById('type').value;
-            const value = document.getElementById('value').value;
-            const details = document.getElementById('details').value;
-            
-            // نام‌های بازی
-            const gameNames = {
-                freefire: "فری فایر",
-                coc: "کلش آف کلنز",
-                cod: "کالاف دیوتی موبایل",
-                pubg: "پابجی موبایل",
-                other: "سایر بازی‌ها"
-            };
-            
-            // نوع درخواست
-            const typeNames = {
-                buy: "خرید اکانت",
-                sell: "فروش اکانت",
-                mediation: "واسطه‌گری برای معامله"
-            };
-            
-            alert(`درخواست واسطه شما با موفقیت ثبت شد!\n\nنام: ${name}\nبازی: ${gameNames[game]}\nنوع درخواست: ${typeNames[type]}\nارزش معامله: ${value} تومان\n\nبرای تکمیل فرآیند، لطفاً با ادمین سعید آرتور در ایتا تماس بگیرید:\nhttps://eitaa.com/Admin_Arthur`);
-            
-            // ریست فرم
-            document.getElementById('mediation-form').reset();
-            
-            // در حالت واقعی، داده‌ها به سرور ارسال می‌شد
-        }
-
-        // مقداردهی اولیه زمانی که صفحه لود شد
-        document.addEventListener('DOMContentLoaded', function() {
-            // بارگذاری محصولات پیش‌فرض (فری فایر)
-            loadProducts('freefire');
-            
-            // بارگذاری قوانین
-            loadRules();
-            
-            // بارگذاری لینک‌ها
-            loadLinks();
-            
-            // ایجاد گردونه شانس
-            createWheel();
-            
-            // افزودن event listener به تب‌ها
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const pageId = this.getAttribute('data-page');
-                    switchPage(pageId);
-                });
-            });
-            
-            // افزودن event listener به دکمه‌های فیلتر بازی
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    const gameId = this.getAttribute('data-game');
-                    switchGame(gameId);
-                });
-            });
-            
-            // افزودن event listener به دکمه چرخاندن گردونه
-            document.getElementById('spin-btn').addEventListener('click', spinWheel);
-            
-            // افزودن event listener به فرم واسطه
-            document.getElementById('mediation-form').addEventListener('submit', submitMediationForm);
-            
-            // تنظیم تاریخ در فوتر
-            const currentYear = new Date().getFullYear();
-            const persianYear = currentYear - 621; // تبدیل به شمسی تقریبی
-            document.querySelector('.copyright p').textContent = `© کلیه حقوق این وبسایت برای آرتور شاپ محفوظ است. ${persianYear}`;
-        });
     </script>
 </body>
 </html>
